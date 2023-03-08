@@ -8,6 +8,7 @@ def save_textfile(text: str, nameOfFile: str):
     print('Saving text output: ' + nameOfFile)
     try:
         os.mkdir(folderPath)
+        totalFilePath = folderPath + '/' + totalFilePath
     except:
         totalFilePath = folderPath + '/' + totalFilePath
 

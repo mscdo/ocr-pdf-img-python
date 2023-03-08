@@ -25,6 +25,7 @@ def save_image(img: any, nameOfFile: str):
     totalFilePath = nameOfFile + ext
     try:
         os.mkdir(folderPath)
+        totalFilePath = folderPath + '/' + totalFilePath
     except:
         totalFilePath = folderPath + '/' + totalFilePath
 
