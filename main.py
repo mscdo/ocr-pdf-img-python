@@ -6,6 +6,7 @@ import otsus_threshold as otsu
 import qrcode
 import img_utils
 import qrcode
+import file_utils
 
 
 def main():
@@ -23,6 +24,7 @@ def main():
         else:
             value = qrcode.read_qr_code(args[1])
             print(value)
+            file_utils.save_textfile(value, 'qrcode_value')
             exit()
 
     elif (args[0][-4:] == '.pdf'):
