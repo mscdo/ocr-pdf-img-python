@@ -22,16 +22,19 @@ def gaussian_blur(img: any):
 
 
 def save_image(img: any, nameOfFile: str):
-    totalFilePath = nameOfFile + ext
+    totalFilePath = folderPath + '/' + nameOfFile + ext
+    print('-----------------')
+    print('Saving image output: ' + nameOfFile)
     try:
         os.mkdir(folderPath)
-        totalFilePath = folderPath + '/' + totalFilePath
-    except:
-        totalFilePath = folderPath + '/' + totalFilePath
+        print('Creating folder ' + folderPath)
+    except OSError as error:
+        print('Dir already exists. Saving into dir...')
 
-    print('Saving image output: ' + nameOfFile)
     cv2.imwrite(totalFilePath, img)
     print('Image saved!')
+    print('-----------------')
+    print('*****************')
 
 
 def show_image(img: any, nameOfWindow: str):
