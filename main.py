@@ -12,18 +12,18 @@ import file_utils
 def main():
     args = sys.argv[1:]  # args is a list of the command line args
     if (len(args) == 0):
-        print("Missing entry file. (i.e. 'example.pdf' or 'image.jpeg')")
+        print("Missing .jpeg or .pdf entry file.")
         return
 
     if (args[0] == '--qrcode'):
         if (args[0][-4:] == '.pdf'):
             imgFile, imgName = img_utils.convertPDFtoImage(args[0])
             value = qrcode.read_qr_code(imgName)
-            print(value)
+            print(value.lower())
             exit()
         else:
             value = qrcode.read_qr_code(args[1])
-            print(value)
+            print(value.lower())
             file_utils.save_textfile(value, 'qrcode_value')
             exit()
 
