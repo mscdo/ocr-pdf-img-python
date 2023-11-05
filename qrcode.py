@@ -17,4 +17,4 @@ def read_qr_code(filename):
         value, points, straight_qrcode = detect.detectAndDecode(img)
         return str(value)
     except:
-        return
+        print('Não foi possível ler QRCode de ', filename, '!')
