@@ -4,8 +4,8 @@ import image_tools
 import validation
 
 
-def ocr_tesseract(img: any, nameOfFile: str):
-
+def ocr_tesseract(img, nameOfFile: str):
+  
     try:
         texto = pytesseract.image_to_string(img, lang='por')
         file_manager.save_textfile(texto, nameOfFile)

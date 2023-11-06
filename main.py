@@ -1,9 +1,8 @@
 import os
 import ocr
-import numpy as np
-import otsus_threshold as otsu
 import qrcode
-import validation, image_tools
+import validation
+import image_tools
 import argparse
 
 
