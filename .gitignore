@@ -1,7 +1,5 @@
-.history
-images
-output
 __pycache__
+output
 test
 *.jpeg
 *.jpg
@@ -9,4 +7,6 @@ test
 *.png
 *.zip
 *.txt
+.env
+model/
 venv*

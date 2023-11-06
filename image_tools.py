@@ -3,6 +3,8 @@ import cv2
 from pdf2image import convert_from_path
 import numpy as np
 import math
+import east_hough
+from skimage import rotate
 
 
 folderPath = 'images'
@@ -31,9 +33,7 @@ def show_image(img: any, nameOfWindow: str):
     cv2.imshow(nameOfWindow, img)  # Nome da janela, objeto imagem
     cv2.waitKey(0)
     
-    
-
-def orientation_correction(img, save_image = False):
+def orientation_correction(img, save_image = False): # NOT TESTED
     # GrayScale Conversion for the Canny Algorithm  
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) 
     # Canny Algorithm for edge detection was developed by John F. Canny not Kennedy!! :)
@@ -56,3 +56,14 @@ def orientation_correction(img, save_image = False):
     if save_image:
         cv2.imwrite('orientation_corrected.jpg', img_rotated)
     return img_rotated
+
+
+def correct_rotation(img_path, args):
+    
+    imageResult, n = east_hough.east_hough_line(img_path, args)
+    if(abs(n) > 5):
+        print('Corrigindo ângulo da imagem....')
+        imgRotated = rotate(imageResult, -n)
+        show_image(imgRotated, 'Image w/ Rotation Corrected: ', n, 'º')
+    else:
+        print('Imagem não precisa de correção de rotação')
