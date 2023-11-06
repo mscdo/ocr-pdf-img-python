@@ -1,4 +1,12 @@
 .history
-./images
-./output
+images
+output
 __pycache__
+test
+*.jpeg
+*.jpg
+*.pdf
+*.png
+*.zip
+*.txt
+venv*
