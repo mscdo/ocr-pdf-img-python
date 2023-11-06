@@ -1,4 +1,10 @@
 .history
-./images
-./output
+images/
+output/
 __pycache__
+test/assets/
+*.jpg
+*.jpeg
+*.pdf
+*.png
+*.txt
